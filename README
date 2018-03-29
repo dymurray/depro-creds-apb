@@ -1,0 +1,53 @@
+# OUTPUT OF DEPROVISION
+
+
+ansible-playbook /opt/apb/actions/deprovision.yml --extra-vars '{"_apb_last_requesting_user":"admin","_apb_plan_id":"default","_apb_service_class_id":"1d2a1fb48625b259598e05111d50c07a","_apb_service_instance_i
+  d":"0a4716ab-3366-11e8-9942-0242ac110008","cluster":"openshift","namespace":"work"}'
+  PLAY [foo-apb playbook to deprovision the application] *************************
+  TASK [ansible.kubernetes-modules : Install latest openshift client] ************
+  skipping: [localhost]
+  TASK [ansibleplaybookbundle.asb-modules : debug] *******************************
+  skipping: [localhost]
+  TASK [deprovision-foo-apb : k8s_v1_config_map] *********************************
+  ok: [localhost]
+  TASK [deprovision-foo-apb : debug] *********************************************
+  ok: [localhost] => {
+      "msg": {
+              "api_version": "v1", 
+              "changed": false, 
+              "config_map": {
+                          "api_version": "v1", 
+                          "data": {
+                                          "foo.conf": "instance_id: foobarbfbb\n"
+                                      }, 
+                          "kind": "ConfigMap", 
+                          "metadata": {
+                                          "annotations": null, 
+                                          "cluster_name": null, 
+                                          "creation_timestamp": "2018-03-29T15:30:05+00:00", 
+                                          "deletion_grace_period_seconds": null, 
+                                          "deletion_timestamp": null, 
+                                          "finalizers": null, 
+                                          "generate_name": null, 
+                                          "generation": null, 
+                                          "initializers": null, 
+                                          "labels": null, 
+                                          "name": "0a4716ab-3366-11e8-9942-0242ac110008", 
+                                          "namespace": "work", 
+                                          "owner_references": null, 
+                                          "resource_version": "22411", 
+                                          "self_link": "/api/v1/namespaces/work/configmaps/0a4716ab-3366-11e8-9942-0242ac110008", 
+                                          "uid": "0e7fea9f-3366-11e8-89da-54ee755dba50"
+                                      }
+                      }, 
+              "failed": false, 
+              "request": {
+                          "kind": "ConfigMap", 
+                          "metadata": {
+                                          "name": "0a4716ab-3366-11e8-9942-0242ac110008", 
+                                          "namespace": "work"
+                                      }
+                      }
+          }
+  }
+
